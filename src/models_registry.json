@@ -110,5 +110,13 @@
   "HMNSFW-AIO-V2.5.safetensors": {
     "url": "https://huggingface.co/Hearmeman/minimax-h3-loras/resolve/main/HMNSFW-AIO-V2.5.safetensors",
     "subdir": "loras"
+  },
+  "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors": {
+    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+    "subdir": "loras"
+  },
+  "minimax_h3_ref2va_XUELUO_int8_convrot.safetensors": {
+    "url": "https://huggingface.co/WarmBloodAban/Minimax_h3_ref2va_XUELUO_int8_convrot/resolve/main/minimax_h3_ref2va_XUELUO_int8_convrot.safetensors",
+    "subdir": "diffusion_models"
   }
 }
