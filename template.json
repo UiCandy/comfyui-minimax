@@ -22,7 +22,9 @@
         "MiniMax-H3-FL2VA-Acc-8Step.safetensors",
         "HMNSFW-AIO-V2.5.safetensors",
         "minimax_h3_audio_vae_fp32.safetensors",
-        "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors"
+        "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+        "H3_Motion_BoosterV2.safetensors",
+        "minimax_h3_fl2v_turbo_4step_v1.1_768p_comfyui_bf16.safetensors"
       ]
     },
     "download_viggle_animate": {
