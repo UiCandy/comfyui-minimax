@@ -83,6 +83,18 @@
     "subdir": "frame_interpolation",
     "min_size_mb": 20
   },
+  "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": {
+    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "subdir": "text_encoders"
+  },
+  "minimax_h3_video_vae_int8_convrot.safetensors": {
+    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors",
+    "subdir": "vae"
+  },
+  "minimax_h3_t2va_veda_8nfe_600step_preview_fp8.safetensors": {
+    "url": "https://huggingface.co/Veda-Sparse/Minimax-H3-T2VA-Veda-8NFE-600Step-Preview/resolve/main/minimax_h3_t2va_veda_8nfe_600step_preview_fp8.safetensors",
+    "subdir": "veda"
+  },
   "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors": {
     "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
     "subdir": "loras"
