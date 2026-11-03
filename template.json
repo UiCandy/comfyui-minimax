@@ -13,11 +13,14 @@
         "minimax_h3_ref2v_turbo_8step_v1.1_768p_comfyui_bf16.safetensors",
         "minimax_h3_latent_upscaler_3d_conv_v1_fp16.safetensors",
         "minimax_h3_sol_vae_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_int8_convrot.safetensors",
+        "minimax_h3_video_vae_fp16.safetensors",
+        "minimax_h3_t2va_veda_8nfe_600step_preview_fp8.safetensors",
         "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
         "MiniMax-H3-Ref2VA-Acc-8Step.safetensors",
         "MiniMax-H3-FL2VA-Acc-8Step.safetensors",
-        "HMNSFW-AIO-V2.5.safetensors",
-        "minimax_h3_video_vae_fp16.safetensors"
+        "HMNSFW-AIO-V2.5.safetensors"
       ]
     },
     "download_viggle_animate": {
@@ -75,13 +78,25 @@
       "https://github.com/LBH-123-AI/Comfyui_Minimax_h3_latent_Upscaler.git|d7c01b9011f2e8439493f6c02c29995a27df276f",
       "https://github.com/Luisacaotica/ComfyUI-MiniMaxH3Mod.git|22ca77e247375dd47fc7340286b5f391887d3410",
       "https://github.com/ClownsharkBatwing/RES4LYF.git|56e44755d866c87ff9cb4b6608c8e42155db6ecc",
-      "https://github.com/Comfy-Org/ComfyUI_Nvidia_VFX_Nodes.git|38d790ded00650681fa3645362efe28c8560cf40"
+      "https://github.com/Comfy-Org/ComfyUI_Nvidia_VFX_Nodes.git|38d790ded00650681fa3645362efe28c8560cf40",
+      "https://github.com/pollockjj/ComfyUI-MultiGPU.git",
+      "https://github.com/jlucasmcrell/ComfyUI-H3-Multishot.git",
+      "https://github.com/veda-sparse/Veda-on-ComfyUI.git",
+      "https://github.com/willmiao/ComfyUI-Lora-Manager.git",
+      "https://github.com/cubiq/ComfyUI_essentials.git",
+      "https://github.com/darksidewalker/ComfyUI-DaSiWa-Nodes.git",
+      "https://github.com/justUmen/Bjornulf_custom_nodes.git",
+      "https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git",
+      "https://github.com/ltdrdata/ComfyUI-Impact-Pack.git",
+      "https://github.com/yolain/ComfyUI-Easy-Use.git",
+      "https://github.com/LAOGOU-666/Comfyui-Memory_Cleanup.git"
     ]
   },
   "sage": true,
   "comfy_extra_args": "--disable-dynamic-vram",
   "extra_model_paths": [
     "refmods",
-    "text_cond"
+    "text_cond",
+    "veda"
   ]
 }
