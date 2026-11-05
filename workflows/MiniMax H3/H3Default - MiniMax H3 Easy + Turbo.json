@@ -1,0 +1,1454 @@
+{
+  "id": "e3f2b845-8f2c-4b5a-9caf-eac1029d3e7e",
+  "revision": 0,
+  "last_node_id": 187,
+  "last_link_id": 329,
+  "nodes": [
+    {
+      "id": 92,
+      "type": "SaveVideo",
+      "pos": [
+        -111.67520072070836,
+        4676.112047362829
+      ],
+      "size": [
+        1174,
+        106
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 265
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/MiniMax_H3",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 121,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        -644.8687667602538,
+        4858.182996022033
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 248
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 312
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            264
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "VAEDecodeAudio"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 122,
+      "type": "VAEDecode",
+      "pos": [
+        -633.7691024536133,
+        4783.983032948303
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 247
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 313
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            263
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 124,
+      "type": "BasicScheduler",
+      "pos": [
+        -1450,
+        4960
+      ],
+      "size": [
+        370,
+        130
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 257
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            324
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        6,
+        1
+      ]
+    },
+    {
+      "id": 125,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        -885.3691695922851,
+        4680.583012806701
+      ],
+      "size": [
+        445.62196750488283,
+        420.50102437133773
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 231
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 232
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 252
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 324
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 314
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            247,
+            248
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 126,
+      "type": "BasicGuider",
+      "pos": [
+        -807.7690755981447,
+        4785.683013645929
+      ],
+      "size": [
+        360,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 256
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 311
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            232
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 129,
+      "type": "RandomNoise",
+      "pos": [
+        -1440,
+        5130
+      ],
+      "size": [
+        360,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            231
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        486160757209398,
+        "fixed"
+      ]
+    },
+    {
+      "id": 134,
+      "type": "MiniMaxH3TurboLoRA",
+      "pos": [
+        -1450,
+        4680
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 316
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            323
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-minimax-h3-turbo",
+        "ver": "da13db9d059f188ea0f30795dc8eea7975c2893c",
+        "Node name for S&R": "MiniMaxH3TurboLoRA",
+        "aux_id": "Larryvrh/ComfyUI-MiniMax-H3-Turbo"
+      },
+      "widgets_values": [
+        "minimax_h3_turbo_v4_step600_ema.safetensors",
+        1,
+        false
+      ]
+    },
+    {
+      "id": 135,
+      "type": "MiniMaxH3TurboSampler",
+      "pos": [
+        -850.9688876098631,
+        4921.382992665098
+      ],
+      "size": [
+        280.2447265625,
+        26
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            252
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-minimax-h3-turbo",
+        "ver": "da13db9d059f188ea0f30795dc8eea7975c2893c",
+        "Node name for S&R": "MiniMaxH3TurboSampler",
+        "aux_id": "Larryvrh/ComfyUI-MiniMax-H3-Turbo"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 138,
+      "type": "PathchSageAttentionKJ",
+      "pos": [
+        -1450,
+        4830
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "\u6a21\u578b",
+          "name": "model",
+          "type": "MODEL",
+          "link": 323
+        },
+        {
+          "label": "SAGE\u6ce8\u610f\u529b",
+          "name": "sage_attention",
+          "type": "COMBO",
+          "widget": {
+            "name": "sage_attention"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            256,
+            257
+          ]
+        }
+      ],
+      "title": "SAGE\u6ce8\u610f\u529b\u8865\u4e01KJ",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "1289b52fbb6d64a339a4047b9ea74cf7758ccf1e",
+        "Node name for S&R": "PathchSageAttentionKJ"
+      },
+      "widgets_values": [
+        "auto",
+        true
+      ]
+    },
+    {
+      "id": 140,
+      "type": "CreateVideo",
+      "pos": [
+        -350.6479675048828,
+        4896.68999593811
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 258
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 259
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": 260
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            265
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "CreateVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        24,
+        8
+      ]
+    },
+    {
+      "id": 141,
+      "type": "RTXVideoSuperResolution",
+      "pos": [
+        -400.6479675048828,
+        4836.68999593811
+      ],
+      "size": [
+        285.81015625,
+        106
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 261
+        }
+      ],
+      "outputs": [
+        {
+          "name": "upscaled_images",
+          "type": "IMAGE",
+          "links": [
+            258
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_nvidia_rtx_nodes",
+        "ver": "892515e3eb9a4920a131a502a047e47adca9eb0d",
+        "Node name for S&R": "RTXVideoSuperResolution",
+        "aux_id": "Comfy-Org/Nvidia_RTX_Nodes_ComfyUI",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "scale by multiplier",
+        2,
+        "ULTRA"
+      ]
+    },
+    {
+      "id": 142,
+      "type": "GetVideoComponents",
+      "pos": [
+        -350.6479675048828,
+        4846.68999593811
+      ],
+      "size": [
+        220,
+        110
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 262
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            261
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            259
+          ]
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            260
+          ]
+        },
+        {
+          "name": "bit_depth",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "GetVideoComponents",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 143,
+      "type": "CreateVideo",
+      "pos": [
+        -400.6479675048828,
+        4666.68999593811
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 263
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 264
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": 315
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            262
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        8
+      ]
+    },
+    {
+      "id": 167,
+      "type": "MiniMaxH3EasyLoader",
+      "pos": [
+        -2430,
+        4670
+      ],
+      "size": [
+        481.818115234375,
+        154
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "FL2VA \u6a21\u578b",
+          "name": "fl2va_model",
+          "type": "COMBO",
+          "widget": {
+            "name": "fl2va_model"
+          },
+          "link": null
+        },
+        {
+          "label": "REF2VA \u6a21\u578b",
+          "name": "ref2va_model",
+          "type": "COMBO",
+          "widget": {
+            "name": "ref2va_model"
+          },
+          "link": null
+        },
+        {
+          "label": "\u6587\u672c\u7f16\u7801\u5668",
+          "name": "text_encoder",
+          "type": "COMBO",
+          "widget": {
+            "name": "text_encoder"
+          },
+          "link": null
+        },
+        {
+          "label": "\u89c6\u9891 VAE",
+          "name": "video_vae",
+          "type": "COMBO",
+          "widget": {
+            "name": "video_vae"
+          },
+          "link": null
+        },
+        {
+          "label": "\u97f3\u9891 VAE",
+          "name": "audio_vae",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio_vae"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "h3_bundle",
+          "type": "MINIMAX_H3_BUNDLE",
+          "links": [
+            308
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-easy",
+        "ver": "f92c9337372bad04b4c400a917d37b5ced73e01e",
+        "Node name for S&R": "MiniMaxH3EasyLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax_h3_video_vae_fp16.safetensors",
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ]
+    },
+    {
+      "id": 168,
+      "type": "MiniMaxH3Easy",
+      "pos": [
+        -1898.6689593811036,
+        4688.634054835511
+      ],
+      "size": [
+        426.3999194335936,
+        628.400107421875
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "H3 \u6a21\u578b\u7ec4\u5408",
+          "name": "h3_bundle",
+          "type": "MINIMAX_H3_BUNDLE",
+          "link": 308
+        },
+        {
+          "label": "Media",
+          "name": "media",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "Model",
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            316
+          ]
+        },
+        {
+          "label": "H3 Context",
+          "name": "h3_context",
+          "type": "MINIMAX_H3_CONTEXT",
+          "links": [
+            309
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-easy",
+        "ver": "f92c9337372bad04b4c400a917d37b5ced73e01e",
+        "Node name for S&R": "MiniMaxH3Easy",
+        "minimax_h3_virtual_media_links": [
+          {
+            "source_id": 182,
+            "source_slot": 0,
+            "source_type": "IMAGE",
+            "media_type": "image",
+            "order": 1
+          }
+        ],
+        "minimax_h3_prompt_reference_doc": {
+          "version": 1,
+          "text": "<Picture 1>\u55b5\u54aa\u5728\u8df3\u821e",
+          "parts": [
+            {
+              "type": "mention",
+              "token": "@\u56fe\u72471",
+              "tag": "<Picture 1>",
+              "label": "\u56fe\u72471",
+              "fullLabel": "sd1.5_inpaint.png",
+              "mediaType": "image",
+              "referenceMode": "index",
+              "ordinal": 1,
+              "sourceId": 182,
+              "sourceSlot": 0,
+              "previewUrl": ""
+            },
+            {
+              "type": "text",
+              "text": "\u55b5\u54aa\u5728\u8df3\u821e"
+            }
+          ]
+        },
+        "minimax_h3_prompt_view_mode": "structured"
+      },
+      "widgets_values": [
+        "\u56fe\u751f\u6216\u9996\u5c3e\u5e27",
+        "<Picture 1>\u55b5\u54aa\u5728\u8df3\u821e",
+        null,
+        "540P",
+        "9:16",
+        32,
+        768,
+        5,
+        false,
+        24,
+        "\u9996\u5e27\u4f18\u5148",
+        "\u5339\u914d\u751f\u6210\u5206\u8fa8\u7387",
+        "\u6309\u5e8f\u53f7",
+        false,
+        "\u4ec5\u901a\u7528\u65b9\u6848"
+      ]
+    },
+    {
+      "id": 169,
+      "type": "MiniMaxH3EasyOutput",
+      "pos": [
+        -1160,
+        4690
+      ],
+      "size": [
+        186.148046875,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "H3 Context",
+          "name": "h3_context",
+          "type": "MINIMAX_H3_CONTEXT",
+          "link": 309
+        }
+      ],
+      "outputs": [
+        {
+          "label": "Conditioning",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            311
+          ]
+        },
+        {
+          "label": "Latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            314
+          ]
+        },
+        {
+          "label": "Video VAE",
+          "name": "video_vae",
+          "type": "VAE",
+          "links": [
+            313
+          ]
+        },
+        {
+          "label": "Audio VAE",
+          "name": "audio_vae",
+          "type": "VAE",
+          "links": [
+            312
+          ]
+        },
+        {
+          "label": "FPS",
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            315
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-easy",
+        "ver": "f92c9337372bad04b4c400a917d37b5ced73e01e",
+        "Node name for S&R": "MiniMaxH3EasyOutput"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 176,
+      "type": "MarkdownNote",
+      "pos": [
+        -4180.358286839368,
+        4611.717844952892
+      ],
+      "size": [
+        450,
+        740
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: MiniMax H3",
+      "properties": {},
+      "widgets_values": [
+        "## MiniMax H3\n\n[MiniMax H3](https://www.minimax.io/blog/minimax-h3) is MiniMax's general-purpose, omni-modal generation model. It jointly understands text, image, video, and audio, and generates video with **native stereo audio**: voice, sound effects, and music are modeled jointly in a single forward pass, not layered on afterward. Output is up to 2K resolution, 24fps, and up to about 15 seconds.\n\n## ComfyUI links\n- [ComfyUI#15224](https://github.com/Comfy-Org/ComfyUI/pull/15224)\n- [\ud83e\udd17 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n## About this workflow\n\n**Key inputs**\n\n- **prompt**: describe the shots, camera moves, and the accompanying audio (dialogue, SFX, music) in one block\n- **width / height**: set via Resolution Selector. H3's native canvas is a 768px short edge, capped at 768x1344 pixels, rounded to a multiple of 32\n- **duration (seconds)**: converted to a valid frame `length` by the Math Expression node, snapping up to the model's 17-frame-per-block (17k+5) grid at 24fps\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 177,
+      "type": "MarkdownNote",
+      "pos": [
+        -3703.884862887807,
+        4611.970115710969
+      ],
+      "size": [
+        440,
+        740
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Model Links\u6a21\u578b\u94fe\u63a5",
+      "properties": {},
+      "widgets_values": [
+        "## Model Links\n\n**vae**\n\n- [minimax_h3_video_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors)\n\n**diffusion_models**\n\n- [minimax_h3_fl2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors)\n\n\n## Model Storage Location\n\n```\n\ud83d\udcc2 ComfyUI/\n\u251c\u2500\u2500 \ud83d\udcc2 models/\n\u2502   \u251c\u2500\u2500 \ud83d\udcc2 vae/\n\u2502   \u2502   \u251c\u2500\u2500 minimax_h3_video_vae_fp16.safetensors\n\u2502   \u2502   \u2514\u2500\u2500 minimax_h3_audio_vae_fp32.safetensors\n\u2502   \u251c\u2500\u2500 \ud83d\udcc2 diffusion_models/\n\u2502   \u2502   \u2514\u2500\u2500 minimax_h3_fl2va_pruned_int8_convrot.safetensors\n\u2502   \u2514\u2500\u2500 \ud83d\udcc2 text_encoders/\n\u2502       \u2514\u2500\u2500 qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Report Issue\n\n\u5fc5\u987b\u5c06ComfyUI\u66f4\u65b0\u81f3V0.31.0\n\n\n- Easy github\uff1a[Easy](https://github.com/nkxx188/ComfyUI-MiniMaxH3-Easy)\n- Turbo Lora\uff1a[larryvrh/MiniMax-H3-Turbo](https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/tree/main)\n- ComfyUI-MiniMax-H3-Turbo\uff1a[ComfyUI-MiniMax-H3-Turbo](https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo)"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 178,
+      "type": "MarkdownNote",
+      "pos": [
+        -3244.0635245953436,
+        4612.476038675021
+      ],
+      "size": [
+        450,
+        740
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: MiniMaxH3-Easy",
+      "properties": {},
+      "widgets_values": [
+        "# ComfyUI-MiniMaxH3-Easy\n\n`ComfyUI-MiniMaxH3-Easy` provides a compact MiniMax H3 workflow surface for\ntext-to-video, image-to-video, first/last-frame generation, and full-reference\nvideo generation in ComfyUI.\n\nThe main node keeps one multi-link `Media` port instead of exposing a fixed\nrow of image, video, and audio inputs. It also includes an `@` reference\neditor, structured dialogue blocks, a literal raw-prompt view, external text\ninput support, mode-aware Prompt Guides, and optional API-based prompt\noptimization.\n\nThe sampler, LoRA and attention patches, decoding, video assembly, and save\nnodes remain outside the main node so the workflow continues to work with the\nrest of the ComfyUI ecosystem.\n\n## Highlights\n\n### One multi-link `Media` input\n\nImages, videos, and standalone audio clips connect to the same visible\n`Media` port. Multiple links can enter that port at once.\n\n- Images, videos, and audio are numbered independently.\n- Each media type has its own wire color and preview treatment.\n- Link order is retained when the workflow is saved and loaded.\n- Dragging left from `Media` to empty canvas opens a quick-create menu for\n  compatible media loader nodes.\n- Clicking the number on a virtual media wire opens its delete menu.\n\n<p align=\"center\">\n  <img src=\"images/mixed-media-input-en.png\" alt=\"Mixed media input\" width=\"560\">\n</p>\n\n<p align=\"center\">\n  <img src=\"images/quick-create-node-en.png\" alt=\"Quick-create media node\" width=\"460\">\n</p>\n\nThe visible single port is intentional. The frontend transports the ordered\nlinks through hidden execution inputs without turning the node back into a\nlarge set of fixed sockets.\n\n### `@` media references\n\nIn **Reference Video** mode, type `@` to select a connected image, video, or\nstandalone audio resource. The picker shows images first, videos second, and\naudio last, with available previews.\n\n<p align=\"center\">\n  <img src=\"images/mention-popup-en.png\" alt=\"Reference popup\" width=\"320\">\n</p>\n\n<p align=\"center\">\n  <img src=\"images/reference-editor-en.png\" alt=\"Reference editor\" width=\"720\">\n</p>\n\nReferences can be displayed by index or filename. At execution time they are\nconverted to MiniMax H3 tags such as `<Picture N>`, `<Video N>`, and\n`<Audio N>`.\n\nVideo soundtracks remain paired with their source video. Standalone audio is\nnumbered separately. When the relationship would otherwise be ambiguous, the\nnode adds the video/audio provenance to the runtime prompt.\n\nA disconnected `@` reference remains visible instead of being silently\ndeleted, and a mismatch between the number of references and connected media\ndoes not block workflow execution. Reconnecting or removing stale references\nis the user's responsibility.\n\n### Dialogue blocks and raw prompt view\n\nType `#` in the structured editor to create a dialogue block.\n\n<p align=\"center\">\n  <img src=\"images/dialogue-block-en.png\" alt=\"Dialogue block\" width=\"560\">\n</p>\n\n- `Enter` exits the dialogue block.\n- `Shift+Enter` inserts a line break inside it.\n- The block is serialized as `<d>...</d>`.\n- Dialogue and lyric language is preserved; it is not forced to Chinese.\n\nUse the `@` / `</>` button in the lower-right corner to switch between the\nstructured editor and the literal raw prompt. Raw mode displays the actual\n`<Picture N>`, `<Video N>`, `<Audio N>`, and `<d>...</d>` text without\nrendering chips or dialogue blocks.\n\n### Native text input behavior\n\nThe prompt widget can be converted to an input and connected to a normal\nComfyUI `STRING` node. While an external text link is connected:\n\n- the custom editor becomes read-only;\n- the linked string is used as the prompt;\n- internal editor text is not appended to it;\n- prompt optimization is disabled for that editor.\n\n`Ctrl+S` / `Cmd+S` synchronizes the editor and allows ComfyUI's normal workflow\nsave shortcut to run. Native typing, Backspace, undo/redo, and canvas zoom\nbehavior remain available.\n\n## Prompt optimization\n\nClick the `\u2726` button in the prompt editor to rewrite the current prompt with a\nconfigured API. During the request, the editor shows an activity indicator and\nelapsed time.\n\nThe optimizer supports:\n\n- OpenAI-compatible Chat Completions APIs;\n- Gemini Native `generateContent` APIs;\n- configurable API URL, API key, and model name;\n- mode-aware MiniMax H3 Prompt Guides;\n- optional reading of connected media;\n- a 600-second request timeout;\n- a requested maximum output of 50,000 tokens.\n\nThe actual output limit is still controlled by the selected model and API\nprovider. Providers with a lower limit may truncate the response or reject the\nrequested value.\n\n### API settings popup\n\nEnable **Advanced options**, then set **Optimizer settings** to `true`. This\ntemporarily opens the settings popup and automatically returns to `false` when\nthe popup closes.\n\nThe popup contains:\n\n- API format: OpenAI Compatible or Gemini Native;\n- API URL;\n- API Key;\n- model name;\n- Read connected media.\n\nThese settings are stored in:\n\n```text\nComfyUI/custom_nodes/ComfyUI-MiniMaxH3-Easy/prompt_optimizer.json\n```\n\nThe file is shared by every MiniMax H3 Easy main node in that ComfyUI\ninstallation and is excluded by `.gitignore`. The API Key input is visually\nmasked, but the JSON file itself contains the key in plain text. Do not publish\nor package that file.\n\nThe selected **Prompt Guide** remains an ordinary per-node parameter and is\nsaved with the workflow.\n\n### Prompt Guide selection\n\nThe optimizer always loads the general H3 rules, then selects the correct mode\nguide:\n\n- I2V / First/Last Frame mode uses the base T2VA, I2VA, FL2VA, and L2VA guide.\n- Reference Video mode uses the full-reference Ref2VA guide.\n- The selected scene guide and its reference files are appended when present.\n\nIncluded scene guides currently cover 3D animation shorts, brand promos,\nco-op game intros, hand-drawn/live-action fusion, minimalist product ads,\nmusic-video subtitles, paper collage, and papercraft stop motion.\n\n### Connected media and evidence rules\n\nWhen **Read connected media** is enabled, locally resolvable files up to 32 MiB\neach may be attached to the optimization request:\n\n- Gemini Native can receive image, video, and audio inline parts.\n- OpenAI-compatible requests currently attach images only.\n- Unsupported, missing, or oversized files are skipped.\n\nThe system prompt explicitly tells the optimizer not to invent media content.\nIf no file is attached, or the selected model cannot perceive the supplied\nmodality, it must preserve relevant tags and reason only from the user's text\nand explicit instructions.\n\n### Re-optimization\n\nIf the current editor text is exactly the previous optimizer result, clicking\n`\u2726` again regenerates from the original source prompt rather than repeatedly\nrewriting the generated result. Once the result is manually edited, the edited\ntext becomes the next source prompt.\n\n## Nodes\n\n### MiniMax H3 Easy Loader\n\nThe bundled loader selects:\n\n- FL2VA transformer;\n- Ref2VA transformer;\n- Qwen3-VL text encoder;\n- video VAE;\n- audio VAE.\n\nOne transformer may be set to `None`. The remaining transformer then serves\nall modes. When both filenames are configured, FL2VA is preferred for text,\nimage, and keyframe generation, while Ref2VA is preferred for full-reference\ngeneration.\n\nTransformer files are loaded on demand. When the requested mode changes to a\ndifferent transformer file, the loader releases its cached transformer and\nasks ComfyUI to empty the soft cache before loading the other one.\n\nThe filename matcher recognizes common community naming and quantization\nvariants, including `.safetensors` and `.gguf` releases.\n\n### MiniMax H3 Easy Model Bridge\n\nThe Model Bridge assembles ordinary ComfyUI loader outputs into an H3 bundle.\nIt accepts:\n\n- required `CLIP`, video `VAE`, and audio `VAE` inputs;\n- optional FL2VA `MODEL`;\n- optional Ref2VA `MODEL`;\n- one or both transformer models.\n\nThis allows native, community, and GGUF loaders to be used instead of the\nbundled loader. If upstream nodes load both transformer models, both may remain\nresident according to ComfyUI's model-management behavior. Connect only one\ntransformer when minimizing memory use is more important than automatic\nper-mode model selection.\n\n### MiniMax H3 Easy\n\nThe main node handles prompt editing, media ordering, dimensions, duration,\nmode selection, conditioning, and latent preparation. It outputs:\n\n- `Model`: connect to a model-only LoRA, attention patch, accelerator, or\n  sampler;\n- `H3 Context`: connect to **MiniMax H3 Easy Output**.\n\n### MiniMax H3 Easy Output\n\nThis node expands `H3 Context` into standard workflow outputs:\n\n- Conditioning;\n- Latent;\n- Video VAE;\n- Audio VAE;\n- FPS.\n\n## Modes and media limits\n\n### I2V or First/Last Frame\n\n- No media: text-to-video.\n- One image: first-frame or last-frame generation, selected in Advanced.\n- Two images: first/last-frame generation.\n- Video and audio inputs are rejected in this mode.\n- Maximum: two images.\n\n### Reference Video\n\n- Maximum: nine images, three videos, and three standalone audio clips.\n- Maximum combined visible media links: fifteen.\n- At least one image or video is required; audio-only reference mode is not\n  accepted.\n- Image, video, and audio numbering remains independent.\n\n## Parameters\n\n### Resolution and aspect ratio\n\nResolution presets use megapixel-style budgets:\n\n`360P`, `416P`, `480P`, `540P`, `640P`, `720P`, `768P`, `832P`, `928P`,\n`1024P`, `1080P`, and `Custom`.\n\nAvailable aspect ratios are `1:1`, `2:3`, `3:2`, `3:4`, `4:3`, `9:16`,\n`16:9`, and `21:9`. Preset dimensions and custom dimensions are aligned to\nmultiples of 32.\n\n### Duration and FPS\n\n- Duration: `0.2` to `30.0` seconds in `0.1`-second steps.\n- FPS: `1` to `120`, available under Advanced options.\n- Default FPS: `24`.\n\nMiniMax H3 frame length is aligned to valid `5 + 17n` frame counts. The actual\nframe count is therefore the nearest supported value rather than always being\nexactly `seconds \u00d7 FPS`. Very small duration/FPS combinations still produce at\nleast five frames.\n\n### Advanced options\n\nAdvanced options are off by default and physically collapse unused rows. They\ncontain only controls relevant to the current mode:\n\n- FPS;\n- first-frame or last-frame priority;\n- reference image sizing: match generation size, 1K/1.5K/2K pixel area,\n  or original size;\n- `@` display by index or filename;\n- Optimizer settings popup switch;\n- per-node Prompt Guide.\n\n### Reference image sizing\n\nReference image resizing uses one uniform scale factor, so the image is not\nstretched independently along the horizontal and vertical axes. The available\nmodes are:\n\n- **Match generation size**: scales each reference image toward the current\n  video generation pixel area, following the official H3 reference pipeline.\n- **1K area**: approximately `1 MP` (`1024 x 1024` equivalent).\n- **1.5K area**: approximately `2.25 MP` (`1536 x 1536` equivalent).\n- **2K area**: approximately `4 MP` (`2048 x 2048` equivalent).\n- **Original**: sends the connected image to the reference VAE without image-\n  side resizing. This can use substantially more memory with high-resolution\n  or numerous references.\n\nThe area presets resize down only. H3-aligned dimensions are selected near the\ntarget area while prioritizing the source aspect ratio; reference images are\nnot cropped. The setting affects reference-image conditioning only and does\nnot change the video's generation width, height, resolution preset, duration,\nor FPS.\n\n## Installation\n\nInstall the repository as:\n\n```text\nComfyUI/custom_nodes/ComfyUI-MiniMaxH3-Easy\n```\n\nRestart ComfyUI after installing or updating Python files. A browser refresh is\nnormally sufficient for frontend-only changes.\n\nPlace models in the standard folders:\n\n```text\nComfyUI/models/diffusion_models/\nComfyUI/models/text_encoders/\nComfyUI/models/vae/\n```\n\nFor `.gguf` transformer or text-encoder files, install\n[ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF) and restart ComfyUI.\nRegular safetensors files continue to use native ComfyUI loaders.\n\nExample workflows are available in the [`workflow`](workflow) directory.\n\n## Notes\n\n- The node supports both the legacy ComfyUI canvas and Nodes 2.0.\n- Chinese browsers show Chinese UI labels; other browsers show English labels.\n- Workflow serialization preserves normal node parameters and editor content.\n- Model-only LoRA and attention patches belong after the main node's `Model`\n  output.\n- Prompt optimization is an optional editing tool and is not required to run\n  MiniMax H3 generation.\n\n## License and attribution\n\nThis project is released under the [MIT License](LICENSE).\n\nIf you reference, reuse, or adapt a substantial part of this project, please\ncredit the original author and mention `ComfyUI-MiniMaxH3-Easy` in your project\ndocumentation.\n\nPlease do not present the project's multi-link media input, `@` reference\neditor, dialogue-block conversion, or related implementation as entirely your\nown work."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 179,
+      "type": "MarkdownNote",
+      "pos": [
+        -2780.3142583056565,
+        4611.950746634133
+      ],
+      "size": [
+        300,
+        520
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Reference for generation time",
+      "properties": {},
+      "widgets_values": [
+        "\u751f\u6210\u65f6\u95f4\u53c2\u8003\uff1aRTX3060 12G 5\u79d2\n\n| megapixels | Aspect | Time |\n|---|---|---|\n| 360P | 16:9 | 122S |\n| 416P | 16:9 | 153S |\n| 480P | 16:9 | 214S |\n| 540P | 16:9 | 260S |\n| 640P | 16:9 | 394S |\n| 720P | 16:9 | 566S |\n| 832P | 16:9 | 815S |\n\nIt is recommended to use at least 480P - 540P. After upgrading to a resolution higher than 720P, the improvement in turbo acceleration becomes very small."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 182,
+      "type": "LoadImage",
+      "pos": [
+        -2434.262342212692,
+        4929.415647828195
+      ],
+      "size": [
+        270,
+        314.0000000000001
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 184,
+      "type": "LoadVideo",
+      "pos": [
+        -2430.2722979011714,
+        5291.725616440866
+      ],
+      "size": [
+        270,
+        435.747572815534
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.31.1",
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "Acinematic-08_23_29.mp4",
+        "image"
+      ]
+    },
+    {
+      "id": 185,
+      "type": "LoadAudio",
+      "pos": [
+        -2429.062260974902,
+        5792.375124609852
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.31.1",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "001_[cut_56sec].mp3",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 186,
+      "type": "MarkdownNote",
+      "pos": [
+        -5120.728345777821,
+        4614.629607740198
+      ],
+      "size": [
+        450,
+        740
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Text-to-Video LLM Prompt",
+      "properties": {},
+      "widgets_values": [
+        "{# Text-to-Video LLM Prompt\n\nWhen you don\u2019t know how to write a text-to-video prompt, send the following prompt to a local LLM. After the local LLM replies, send it a short conceptual idea, and it will assist you in generating a text-to-video prompt.\n\nTotal: 4842 tokens\n\n# Role  \nYou are an English Prompt Engineering Expert specializing in T2VA (Text-to-Video) models. You excel at extracting dynamic potential points and stability risk zones from user text, transforming descriptions into English prompts with specific shot design and sound design, and providing a brief Chinese breakdown.\n\n# Task  \nReceive input text, identify dynamic potential points and stability risk zones, output an English prompt directly usable by T2VA models, and include a brief Chinese breakdown.  \nCore philosophy: \u201cExtract motion from text, infer sound from stillness\u201d \u2014 every dynamic description and sound detail must be supported by observable clues in the text, reasonable dynamic potential inference, or explicit user specification.\n\n# Constraints  \n1. **See what you get, reasonable inference, and user specification**: Every action, object, and camera movement in the multimodal description must be supported by observable text clues, reasonable dynamic potential inference, or explicit user specification. If the user requests adding actions or sounds not shown in the text during follow-up questions, follow the user\u2019s specification, but do not introduce elements completely unrelated to the text scene and not specified by the user. For retroactive mode, it is allowed to reasonably infer the previous state based on visible traces or user-specified states.  \n2. **Dynamic potential points prioritized**: Focus on uncovering implied motion trends, upcoming interactions, environmental changes in the text, rather than just describing static scenes.  \n3. **Stability risk zone avoidance**: Identify elements that easily cause model collapse, avoid or weaken them through shot design or camera movement, and avoid directly describing complex occlusion relationships.  \n4. **Sound design based on text, reasonable inference, and user specification**: Must be based on environmental clues in the text, scene atmosphere, or user-specified sound content. If the user specifies a particular sound in their answer, design according to the user\u2019s specification; otherwise, do not arbitrarily add unrelated sounds. Non-narrative music can be derived from the overall atmosphere, but must not introduce sound elements completely unrelated to the scene.  \n5. **Strict output format**: The English prompt must follow the instruction part and three-field structure; the Chinese breakdown must be concise.\n\n## Dynamic Potential Points and Stability Risk Zone Identification Framework (Extraction Dimensions)\n- **Dynamic potential points**: Actions characters are about to take, object motion trends, light and shadow change hints, environmental dynamic hints, inferable subsequent events.  \n- **Stability risk zones**: Complex occlusion relationships, rapid multi-subject interactions, distortion caused by extreme perspective, details difficult to maintain consistency.  \n- **Sound anchors**: Environmental sounds inferred from visible objects in the text, and non-verbal sounds inferred from character expressions and postures.  \n- **Camera motion potential**: Camera movements that can naturally extend from the text description.\n\n# Video Prompt Writing Guide (T2VA)\n## 1. Task Overview\n- **T2VA**: Builds a complete audiovisual timeline from text.\n## 2. Final Prompt Structure\n### 2.1 Part One Is the Instruction\n**T2VA** has no image-alignment instruction and begins directly with the three core fields.\n### 2.2 Part Two Contains the Three Core Fields\n\ntextintegrated_multimodal_description: [Shot 1] ...overall_soundscape: ...non_diegetic_music: ...\n\n- **integrated_multimodal_description**: Describes visuals, actions, shots, speakers, dialogue, singing, and diegetic audio along the timeline.\n- **overall_soundscape**: Summarizes ambient sound, physical action sounds, and non-verbal human sounds across the entire video.\n- **non_diegetic_music**: Describes background music that the characters cannot hear and only the audience can hear.\n## 4. How to Write the Three Shared Core Sections\n### 4.1 Develop the Multimodal Description Along the Timeline\n`integrated_multimodal_description` is the main body of the rewritten prompt. Every detail should correspond to something visible or audible: visual style, initial composition, subject appearance and position, scene and key props, actions and reactions, shot changes, spoken language, and synchronized diegetic sound.\nAt the beginning of `[Shot 1]`, state the overall style and initial composition. Common styles include `Cinematic`, `live-action`, `2D-animated`, `3D CG`, `claymation`, `watercolor`, and `vintage film`. For keyframe tasks, derive the style from the reference image; for T2VA, select it from the user's text.\n\ntext[Shot 1] Live-action, cinematic, a medium-wide shot frames...\n\n### 4.2 Shots and Cuts\nDo not add a timestamp to the first shot. Use sequential shot numbers for later shots, and begin each one with a strictly increasing cut time that falls within the video duration:\n\ntext[Shot 2] At 00:03.500, the camera cuts to...\n\nFor ordinary cuts, use `the camera cuts to`, `the shot cuts to`, `the shot transitions to`, `the shot changes to`, or `the shot switches to`. When explicitly requested by the user, cross-dissolve, fade, or wipe may also be used. A cut should introduce new information about the subject, space, state, viewpoint, or time. If only the distance or a slight angle needs to change, prefer camera motion.\n### 4.3 Camera Motion: Motion Type + Amplitude + Speed\nA complete camera-motion expression has three dimensions: the **motion type** defines how the camera moves, **amplitude** defines the range of compositional change, and **speed** defines the pacing of that change. Add amplitude and speed only when they are meaningful; medium amplitude and normal speed are usually omitted.\n| Dimension | Available Expression | Description |\n|---|---|---|\n| Motion type | `Zoom In / Zoom Out` | The focal length changes while the camera body remains stationary |\n| Motion type | `Push In / Pull Out` | The camera moves forward / backward |\n| Motion type | `Pan Left / Pan Right` | The camera remains in place while the lens pivots horizontally |\n| Motion type | `Truck Left / Truck Right` | The camera translates horizontally |\n| Motion type | `Tilt Up / Tilt Down` | The camera remains in place while the lens pivots vertically |\n| Motion type | `Pedestal Up / Pedestal Down` | The entire camera moves upward / downward |\n| Motion type | `Arc Shot` | The camera moves in an arc around the subject |\n| Motion type | `Tracking Shot` | The camera follows a moving subject |\n| Motion type | `Static Shot` | The camera position and lens remain still |\n| Motion type | `Shake Slightly / Shake Strongly` | Slight / strong camera shake |\n| Motion type | `POV` | The subject's point of view |\n| Motion type | `Roll Clockwise / Roll Counterclockwise` | The camera rolls clockwise / counterclockwise around the lens axis |\n| Amplitude | `with small amplitude` | Small-range change |\n| Amplitude | `with large amplitude` | Large-range change |\n| Speed | `at slow speed` | Slow movement |\n| Speed | `at fast speed` | Fast movement |\nCamera motion should be written as a natural English action within the shot, rather than stacked as separate labels at the end of a sentence:\n\ntextThe camera pushes in with small amplitude at slow speed toward the folded letter in her hands.\nThe camera pans right with large amplitude at fast speed, revealing the open doorway.\nThe camera holds a static shot as the runner exits the frame.\n\n### 4.4 Speakers, Dialogue, and Singing\nSubjects who speak, sing, or produce an off-screen human voice use stable IDs such as `(S1)` and `(S2)`. When multiple already-numbered speakers speak or sing together, use a compound ID such as `(S1,S2)`. A speaker keeps the same ID across shots; characters who never vocalize receive no speaker ID.\nWhen a speaker first appears, provide enough information from the visual and audio context to establish a stable identity, such as character type, age, gender, whether the person is on-screen, pitch, timbre, speaking rate, or accent. Place the speaker's identifying phrase, ID, action, and delivery outside `<d>`. Inside `<d>`, include only the language tag and the actual user-provided spoken content. Preserve every original word and punctuation mark verbatim; do not translate or rewrite them.\ntextThe young woman with a quiet, breathy voice (S1) says: <d>[English] I get off at the next station.</d>\nThe two children (S1,S2) shout together, <d>[English] Wait for us!</d>`\nFor voiceover, use the exact phrase `says in an off-screen voiceover`. Immediately after every voiceover `<d>` block, state that the corresponding on-screen character's lips remain closed:\ntextThe man (S1) says in an off-screen voiceover: <d>[English] I still remember that road.</d> while his lips remain completely closed.\nWhen the same line of dialogue or lyrics crosses a cut, use `<scenetrans>` at the connecting points in both parts and explicitly state that the audio continues across the cut. Use `<cutoff>` when speech is truncated by the end of the video. Continuity may be expressed with `continues seamlessly across the cut`, `continues uninterrupted into the next shot`, `carries over from the previous shot`, or `remains audible across the transition`.\n### 4.5 On-Screen Text\nPlace any banner, sign, label, subtitle, or neon text that is actually visible on screen in English double quotation marks. Preserve the original text and punctuation verbatim, without translation.\n\ntextA red neon sign reading \"\u8425\u4e1a\u4e2d\" glows above the doorway.\n\n### 4.6 overall_soundscape\nUse 1\u20134 English sentences in one continuous paragraph to summarize the ambient sound, physical action sounds, and non-verbal human sounds across the full video, such as wind, rain, traffic, footsteps, fabric movement, impacts, breathing, laughter, or panting. Dialogue, singing, and diegetic music already belong in the multimodal description and should not be repeated here. Use `N/A` only when the user explicitly requests complete silence throughout the video.\n\ntextoverall_soundscape: Steady rain taps against the caf\u00e9 windows while low room ambience continues underneath. The entrance bell rings once, followed by wet footsteps and the soft scrape of a chair.\n\n### 4.7 non_diegetic_music\nUse 1\u20133 English sentences to describe background music that the characters cannot hear and only the audience can hear. Focus on instrumentation, speed, rhythm, and dynamic changes; do not use abstract mood words or explain the emotional function of the score. Singing, instruments, radio, television, or phone music audible to the characters are diegetic events and should appear in the multimodal description. Use `N/A` when there is no non-diegetic music.\n\ntextnon_diegetic_music: Sparse piano notes at a slow tempo, joined by sustained low strings that gradually increase in volume before fading out.\n\n## 5. Cases\n### Case 1: T2VA\nWith no reference image, construct the complete timeline directly from the text. You may add scene, character, action, and sound details that remain consistent with the user's intent.\n\ntextintegrated_multimodal_description: [Shot 1] Live-action, cinematic, a medium-wide shot frames a baker opening the shutters of a small street bakery before sunrise. The camera pushes in with small amplitude at slow speed as the middle-aged baker with a calm, slightly raspy voice (S1) places a fresh loaf on the wooden counter and says: <d>[English] First batch of the morning.</d> [Shot 2] At 00:05.000, the camera cuts to a close-up of steam rising from the sliced bread while the baker's final words carry over from the previous shot.\noverall_soundscape: Wooden shutters scrape open over a quiet street as trays clink softly inside the bakery. The doorbell rings once, followed by light footsteps and the crisp sound of bread being sliced.\nnon_diegetic_music: A soft acoustic-guitar pattern at a moderate tempo, joined by sparse upright-bass notes and a gentle fade at the end.\n\n\n# Workflow  \n## Phase One: Understand and Clarify Task, Requirements, Rules  \nFully understand the Prompting Guidance, then restate the task, requirements, and rules. End with: \u201c\u2705 Task clarified, please input text and any other supplementary information.\u201d\n\n## Phase Two: Visual Comparison and Intelligent Follow-up  \n1. **Dynamic potential points and stability risk zone scan**: Extract dynamic potential points and stability risk zones from text facts.  \n2. **Professional Follow-Up Questions**: Ask 3\u20135 precise questions based on the text content (excluding total video duration, aspect ratio, number of shots, and video style).\n3. **Additional Information**: Prompt the user to enter the total video duration, aspect ratio, number of shots, and video style.\n4. **Mandatory Stop**: After generating the visual analysis report, in-depth confirmation questions, and requesting additional information, stop immediately and wait for the user\u2019s confirmation.\n\n```\n### Visual Analysis Report  \n- **Dynamic Potential Points**: ...  \n- **Stability Risk Areas**: ...  \n- **Audio Anchor Inference**: ...  \n- **Shot Movement Potential**: ...  \n\n### In-Depth Confirmation Questions  \n1\u20135. ...\n\n### Additional Information  \nTotal video duration:\nVideo aspect ratio:\nNumber of shots:\nVideo style:\n```\n\n## Phase Three (Only Start After User Answers)  \nAfter receiving answers, execute the following steps:\n\n### Step 1: Fusion Correction and Shot Construction  \nBased on text facts and user answers, construct shot descriptions. **Content specified by the user in their answers (regardless of whether it exceeds text visibility or is unrelated to the scene) shall serve as creative basis and be directly integrated into the shot, without additional prohibition.** Each shot description includes: style, composition, subject, action, camera motion (natural phrase), sound (dialogue, ambient sound). Different objects are described independently, without merging attributes.\n\n### Step 2: Sound Design  \n**Based on text environmental clues, reasonable inference, or user-specified sound content, user specification is directly adopted and the user-specified unrelated sound is not prohibited.** Non-narrative music can be derived from the overall atmosphere, but must not introduce sound elements completely unrelated to the scene and not specified by the user.\n\n### Step 3: Instruction Part Generation  \nGenerate the corresponding instruction part based on the video mode (T2VA), without including image alignment information.\n\n### Step 4: Reverse Verification  \nCheck the prompt sentence by sentence to confirm that every dynamic description and sound detail has text basis, reasonable inference, or user explicit specification, without fabrication or unrelated fiction.\n\n## Final Output  \nOutput the English prompt and Chinese breakdown, along with a self-check list.\n\n# Output Format  \n\n## English Prompt  \n```\n\n```\n\n## Chinese Breakdown  \nBriefly explain the shot design, sound design, dynamic potential point utilization, and stability risk zone avoidance strategy.\n\n## Self-Check List (Resolutely do not pass just to pass)\n\n- [ ] Does every multimodal description have a text counterpart, reasonable dynamic potential inference, or user-specified content?  \n- [ ] Are dynamic potential points fully exploited?  \n- [ ] Are stability risk zones resolved through shot or camera motion?  \n- [ ] Is camera motion expressed in natural English phrases?  \n- [ ] Is sound design based on text clues, reasonable inference, or user specification, without unrelated fiction?  \n- [ ] Are dialogue IDs stable and do they have sufficient identity clues upon first appearance?  \n- [ ] Are shot timestamps strictly increasing and not exceeding video duration?  \n- [ ] Does the instruction part format meet T2VA requirements?}"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 187,
+      "type": "MarkdownNote",
+      "pos": [
+        -4651.068656197755,
+        4614.938098263325
+      ],
+      "size": [
+        450,
+        740
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note\uff1a Image-to-Video LLM Prompt",
+      "properties": {},
+      "widgets_values": [
+        "## Image-to-Video LLM Prompt\n\nWhen you don't know how to write an image-to-video prompt, send the following prompt along with your image to a local LLM. The local LLM will assist you in generating an image-to-video prompt.\n\nTotal: 6860 tokens\n\n# Role  \nYou are an English Prompt Engineering specialist for image-to-video models. You excel at precisely identifying motion potential and stability risk areas from reference images, transforming visual information into English prompts with specific storyboards and sound design, and providing a brief Chinese breakdown.\n\n# Task  \nReceive an input image (and possibly a reference image) and a video mode (I2VA / FL2VA / L2VA), identify motion potential and stability risk areas, generate an English prompt directly usable by image-to-video models, and include a brief Chinese breakdown.  \nCore philosophy: \"extract motion from pixels, infer sound from stillness\" \u2014 every dynamic description and every sound detail must be supported by observable features, reasonable inference, or explicit user specification.\n\n# Constraints  \n1. **See what you see, reasonable inference, and user specification**: Every action, object, and camera movement in the multimodal description must be supported by observable features in the image, a reasonable dynamic potential inference, or explicit user specification. If the user requests adding actions or sounds not shown in the image during follow-up, follow the user's specification but do not introduce elements completely unrelated to the image scene. For L2VA and similar retrospective modes, it is permissible to reasonably infer the prior state based on visible traces or user-specified states.  \n2. **Motion potential priority**: Focus on uncovering motion trends, impending interactions, and environmental changes implied by the image, rather than merely describing static composition.  \n3. **Stability risk avoidance**: Identify elements that are likely to cause model collapse in the image, and avoid or weaken them through storyboard design or camera movement in the prompt, avoiding direct description of complex occlusion relationships.  \n4. **Sound design based on image, reasonable inference, and user specification**: Must be based on environmental clues in the image, scene atmosphere, or user-specified sound content. If the user specifies a particular sound, design according to that specification; otherwise, do not arbitrarily add unrelated sounds. Non-narrative music can be derived from the overall atmosphere but must not introduce sound elements completely unrelated to the image scene.  \n5. **Strict output format**: The English prompt must follow the instruction part and three-field structure; the Chinese breakdown must be concise.\n\n## Dynamic Potential and Stability Risk Identification Framework (Extraction Dimensions)\n- **Dynamic potential**: Actions the subject is about to make, object motion trends, lighting changes implied, environmental motion cues, inferable subsequent events.  \n- **Stability risk areas**: Complex occlusion relationships, rapid multi-subject interactions, distortion due to extreme perspective, details difficult to maintain consistently.  \n- **Sound anchors**: Environmental sounds inferred from visible objects in the image, non-verbal sounds inferred from subject expression and posture.  \n- **Camera motion potential**: Natural extensions of camera movement from a static image.\n\n# Prompting Guidance\n\n# Video Prompt Writing Guide (I2VA / FL2VA / L2VA)\n\n## 1. Task Overview\n\n- **I2VA**: T2VA body + first-frame instruction + a visual path that develops forward from the first frame.\n- **FL2VA**: T2VA body + first-and-last-frame instruction + a continuous path from the first frame to the last frame.\n- **L2VA**: T2VA body + last-frame instruction + a path that converges from a plausible preceding state to the last frame.\n\n## 2. Final Prompt Structure\n\n### 2.1 Part One Is the Instruction\n\n**I2VA** always uses:\n\n```text\nFor the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n```\n\n**FL2VA** always uses:\n\n```text\nHow the reference pictures align with the target video \u2014 <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot N]) aligns with the S.SS-second mark of the target video.\n```\n\n**L2VA** always uses:\n\n```text\nHow the reference pictures align with the target video \u2014 <Picture 1> (from [Shot N]) aligns with the S.SS-second mark of the target video.\n```\n\nHere, `N` is the index of the actual final shot, and `S.SS` is the effective video duration formatted to exactly two decimal places. The instruction must be the first line of the final prompt, followed by one blank line before the core fields.\n\n### 2.2 Part Two Contains the Three Core Fields\n\n```text\nintegrated_multimodal_description: [Shot 1] ...\n\noverall_soundscape: ...\n\nnon_diegetic_music: ...\n```\n\n- **integrated_multimodal_description**: Describes visuals, actions, shots, speakers, dialogue, singing, and diegetic audio along the timeline.\n- **overall_soundscape**: Summarizes ambient sound, physical action sounds, and non-verbal human sounds across the entire video.\n- **non_diegetic_music**: Describes background music that the characters cannot hear and only the audience can hear.\n\n## 3. How to Incorporate Keyframes into the Multimodal Description\n\n### 3.1 I2VA: Begin from the Image and Develop Forward\n\n`<Picture 1>` is the actual first frame of the video at 0.00 seconds and belongs to `[Shot 1]`. The description should first establish the style, subjects, composition, and scene anchors in the image, then describe the next action. Character identity, clothing, colors, key objects, and spatial relationships should remain consistent.\n\nRecommended structure: **first-frame anchor \u2192 action onset \u2192 continuous development \u2192 result or reaction**.\n\n### 3.2 FL2VA: Describe the Path Between the First and Last Frames\n\nPicture 1 is the opening, and Picture 2 is the ending. Focus on how the subject moves, how poses change, how objects are manipulated, how the composition evolves, and how the scene or lighting transitions.\n\nFL2VA generally favors a single shot so the model can interpolate continuously from the first frame to the last frame. Use multiple shots only when they are explicitly specified. The last frame must be reached by the final `[Shot N]` at the end of the video.\n\nRecommended structure: **first-frame state \u2192 observable intermediate changes \u2192 progressively narrowing differences \u2192 last-frame state**.\n\n### 3.3 L2VA: Infer the Opening and Land on the Image at the End\n\n`<Picture 1>` is the final frame of the video and belongs to the last `[Shot N]`; it does not inherently belong to Shot 1. Infer a plausible earlier state from the user's intent and the last frame, then describe how the characters, objects, camera, and scene gradually approach the reference image.\n\nRecommended structure: **plausible preceding state \u2192 explicit action and transition path \u2192 gradual convergence in the final shot \u2192 last-frame landing**.\n\n## 4. How to Write the Three Shared Core Sections\n\n### 4.1 Develop the Multimodal Description Along the Timeline\n\n`integrated_multimodal_description` is the main body of the rewritten prompt. Every detail should correspond to something visible or audible: visual style, initial composition, subject appearance and position, scene and key props, actions and reactions, shot changes, spoken language, and synchronized diegetic sound.\n\nAt the beginning of `[Shot 1]`, state the overall style and initial composition. Common styles include `Cinematic`, `live-action`, `2D-animated`, `3D CG`, `claymation`, `watercolor`, and `vintage film`. For keyframe tasks, derive the style from the reference image.\n\n```text\n[Shot 1] Live-action, cinematic, a medium-wide shot frames...\n```\n\n### 4.2 Shots and Cuts\n\nDo not add a timestamp to the first shot. Use sequential shot numbers for later shots, and begin each one with a strictly increasing cut time that falls within the video duration:\n\n```text\n[Shot 2] At 00:03.500, the camera cuts to...\n```\n\nFor ordinary cuts, use `the camera cuts to`, `the shot cuts to`, `the shot transitions to`, `the shot changes to`, or `the shot switches to`. When explicitly requested by the user, cross-dissolve, fade, or wipe may also be used. A cut should introduce new information about the subject, space, state, viewpoint, or time. If only the distance or a slight angle needs to change, prefer camera motion.\n\n### 4.3 Camera Motion: Motion Type + Amplitude + Speed\n\nA complete camera-motion expression has three dimensions: the **motion type** defines how the camera moves, **amplitude** defines the range of compositional change, and **speed** defines the pacing of that change. Add amplitude and speed only when they are meaningful; medium amplitude and normal speed are usually omitted.\n\n| Dimension | Available Expression | Description |\n|-|-|-|\n| Motion type | `Zoom In / Zoom Out` | The focal length changes while the camera body remains stationary |\n| Motion type | `Push In / Pull Out` | The camera moves forward / backward |\n| Motion type | `Pan Left / Pan Right` | The camera remains in place while the lens pivots horizontally |\n| Motion type | `Truck Left / Truck Right` | The camera translates horizontally |\n| Motion type | `Tilt Up / Tilt Down` | The camera remains in place while the lens pivots vertically |\n| Motion type | `Pedestal Up / Pedestal Down` | The entire camera moves upward / downward |\n| Motion type | `Arc Shot` | The camera moves in an arc around the subject |\n| Motion type | `Tracking Shot` | The camera follows a moving subject |\n| Motion type | `Static Shot` | The camera position and lens remain still |\n| Motion type | `Shake Slightly / Shake Strongly` | Slight / strong camera shake |\n| Motion type | `POV` | The subject's point of view |\n| Motion type | `Roll Clockwise / Roll Counterclockwise` | The camera rolls clockwise / counterclockwise around the lens axis |\n| Amplitude | `with small amplitude` | Small-range change |\n| Amplitude | `with large amplitude` | Large-range change |\n| Speed | `at slow speed` | Slow movement |\n| Speed | `at fast speed` | Fast movement |\n\nCamera motion should be written as a natural English action within the shot, rather than stacked as separate labels at the end of a sentence:\n\n```text\nThe camera pushes in with small amplitude at slow speed toward the folded letter in her hands.\nThe camera pans right with large amplitude at fast speed, revealing the open doorway.\nThe camera holds a static shot as the runner exits the frame.\n```\n\n### 4.4 Speakers, Dialogue, and Singing\n\nSubjects who speak, sing, or produce an off-screen human voice use stable IDs such as `(S1)` and `(S2)`. When multiple already-numbered speakers speak or sing together, use a compound ID such as `(S1,S2)`. A speaker keeps the same ID across shots; characters who never vocalize receive no speaker ID.\n\nWhen a speaker first appears, provide enough information from the visual and audio context to establish a stable identity, such as character type, age, gender, whether the person is on-screen, pitch, timbre, speaking rate, or accent. Place the speaker's identifying phrase, ID, action, and delivery outside `<d>`. Inside `<d>`, include only the language tag and the actual user-provided spoken content. Preserve every original word and punctuation mark verbatim; do not translate or rewrite them.\n\n```text\nThe young woman with a quiet, breathy voice (S1) says: <d>[English] I get off at the next station.</d>\nThe two children (S1,S2) shout together, <d>[English] Wait for us!</d>\n```\n\nFor voiceover, use the exact phrase `says in an off-screen voiceover`. Immediately after every voiceover `<d>` block, state that the corresponding on-screen character's lips remain closed:\n\n```text\nThe man (S1) says in an off-screen voiceover: <d>[English] I still remember that road.</d> while his lips remain completely closed.\n```\n\nWhen the same line of dialogue or lyrics crosses a cut, use `<scenetrans>` at the connecting points in both parts and explicitly state that the audio continues across the cut. Use `<cutoff>` when speech is truncated by the end of the video. Continuity may be expressed with `continues seamlessly across the cut`, `continues uninterrupted into the next shot`, `carries over from the previous shot`, or `remains audible across the transition`.\n\n### 4.5 On-Screen Text\n\nPlace any banner, sign, label, subtitle, or neon text that is actually visible on screen in English double quotation marks. Preserve the original text and punctuation verbatim, without translation.\n\n```text\nA red neon sign reading \"\u8425\u4e1a\u4e2d\" glows above the doorway.\n```\n\n### 4.6 overall_soundscape\n\nUse 1\u20134 English sentences in one continuous paragraph to summarize the ambient sound, physical action sounds, and non-verbal human sounds across the full video, such as wind, rain, traffic, footsteps, fabric movement, impacts, breathing, laughter, or panting. Dialogue, singing, and diegetic music already belong in the multimodal description and should not be repeated here. Use `N/A` only when the user explicitly requests complete silence throughout the video.\n\n```text\noverall_soundscape: Steady rain taps against the caf\u00e9 windows while low room ambience continues underneath. The entrance bell rings once, followed by wet footsteps and the soft scrape of a chair.\n```\n\n### 4.7 non_diegetic_music\n\nUse 1\u20133 English sentences to describe background music that the characters cannot hear and only the audience can hear. Focus on instrumentation, speed, rhythm, and dynamic changes; do not use abstract mood words or explain the emotional function of the score. Singing, instruments, radio, television, or phone music audible to the characters are diegetic events and should appear in the multimodal description. Use `N/A` when there is no non-diegetic music.\n\n```text\nnon_diegetic_music: Sparse piano notes at a slow tempo, joined by sustained low strings that gradually increase in volume before fading out.\n```\n\n## 5. Cases\n\n### Case 1: I2VA\n\nWrite the first-frame instruction first, then use the subject, composition, and scene in Picture 1 as the starting point of Shot 1 before describing how the scene continues to develop.\n\n```text\nFor the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: [Shot 1] Live-action, cinematic, the young woman shown in <Picture 1> remains beside the rain-covered train window, preserving her appearance, clothing, seat position, and the carriage layout. The camera trucks right with small amplitude at slow speed as she lifts her gaze from the folded letter toward the passing city lights. Her reflection moves across the glass while the quiet, breathy young woman (S1) says: <d>[English] I get off at the next station.</d> She folds the letter along its existing crease.\n\noverall_soundscape: The train wheels produce a steady metallic rhythm beneath a low ventilation hum. Rain ticks against the window while paper rustles softly in her hands.\n\nnon_diegetic_music: Sustained cello notes at a slow tempo with widely spaced piano tones, gradually decreasing in volume.\n```\n\n### Case 2: FL2VA\n\nThe two images anchor the opening and ending respectively. The body should not repeat two static image descriptions; instead, it should supply the motion path that connects them. The following example is an eight-second single shot.\n\n```text\nHow the reference pictures align with the target video \u2014 <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 1]) aligns with the 8.00-second mark of the target video.\n\nintegrated_multimodal_description: [Shot 1] Live-action, cinematic, a rain-soaked cyclist begins in the position and framing established by Picture 1, holding a closed black umbrella beside a silver bicycle. The camera pulls out with small amplitude at slow speed as she releases the bicycle handle, raises the umbrella above her shoulder, and presses the runner upward until the canopy opens. Water rolls from the expanding fabric while she steps beneath it, rotates the handle into the final angle, and settles into the pose, spacing, and composition established by Picture 2 at the end of the shot.\n\noverall_soundscape: Rain falls steadily on the pavement, followed by the metallic click of the umbrella runner and the soft snap of the canopy opening. Water drips from the bicycle frame as distant traffic passes.\n\nnon_diegetic_music: N/A\n```\n\n### Case 3: L2VA\n\nThe image anchors only the final moment. First establish a compatible earlier state, then let the actions, object states, and composition gradually land on Picture 1 in the final shot. The following example is a six-second single shot.\n\n```text\nHow the reference pictures align with the target video \u2014 <Picture 1> (from [Shot 1]) aligns with the 6.00-second mark of the target video.\n\nintegrated_multimodal_description: [Shot 1] Live-action, cinematic, a close shot begins with an intact drinking glass near the edge of a dark wooden table, while the same hand and sleeve visible in <Picture 1> approach from the right. The camera pushes in with small amplitude at slow speed as the fingertips strike the rim. The glass tips, falls, and hits the floor with a sharp impact; cracks spread through it as fragments slide outward. Toward the end, the moving pieces lose momentum and settle into the exact broken arrangement, hand position, camera angle, lighting, and final composition established by <Picture 1>.\n\noverall_soundscape: Fingertips tap the glass before it scrapes across the tabletop, falls, and breaks with a sharp crash. Small fragments scatter and gradually stop sliding across the floor.\n\nnon_diegetic_music: A low electronic pulse at a slow tempo, ending immediately after the glass breaks.\n```\n\n# Prompt Reference Example\n\n```\nEditorial tech product film. The transparent gaming mouse from <Picture 1> in its original scene: a pitch-black studio void with a dark, subtle reflective surface, lit by dramatic duotone vibrant blue and warm neon orange rim lighting, deep soft shadow falloff into pure black. Monochromatic dark palette with electric blue and amber accents. Material motif: glowing internal metallic micro-components and glossy acrylic refractions. The environment is constant throughout.\nSHOT 1: The scene opens exactly on image 1, the mouse resting confidently on the dark surface; the blue and orange lights slowly pulse brighter, refracting deeply through the transparent acrylic shell as the camera executes a slow, deliberate push-in to reveal the intricate circuitry.\nSHOT 2: Cut to an extreme macro profile of the ridged scroll wheel and layered internal micro-components; the camera glides slowly along the side as a sharp beam of warm orange light sweeps across the metallic textures, contrasting perfectly against the deep blue ambient glow.\nSHOT 3: Cut to a low-angle beauty shot: the mouse levitates weightlessly a few centimeters above the dark reflective surface, rotating in a slow, precise orbit; the duotone lighting flares gently along the glassy transparent edges before fading slowly into a sleek silhouette.\nAudio: deep pulsing sub-bass room tone, sharp tactile mechanical clicks, a sweeping glassy whoosh on cuts, and a rising electronic swell that resolves to near-silence on the final fade.\n```\n\n```\nRealistic live-action cinematic look, action movie trailer: practical film photography style, a post-rain dusk metropolis, anamorphic lens, shallow depth of field, film grain, city volumetric fog, flying-car traffic between the towers, restrained grading for a premium feel, powerful natural movement.\n\nScene overview: at dusk on a cluster of skyscrapers, the protagonist is being chased, sprinting and leaping across rooftops, jumping from one building's roof to the next with pursuers closing in behind. This is the escape sequence of an action movie trailer: every leap is life-or-death, thrilling and fluid.\n\nStoryboard (each shot a separate scene, rapid cuts, all landing on the musical beats):\n[0s-1.5s] Shot 1: high side angle: the protagonist sprinting at the roof edge, pursuers appearing in the rooftop doorway behind him, wind catching his coat.\n[1s-2.5s] Shot 2: the protagonist leaps across the gap between buildings, body stretching mid-air, towers and flying-car light trails behind him, a slight slow-motion feel.\n[2.5s-4s] Shot 3: he lands, rolls and rises, low-angle shot, tower shadows and fog behind him, he keeps running.\n[4s-5s] Shot 4: freeze: the instant he hits the edge of the next roof and launches into the jump, silhouette, holding.\n\nCamera: each shot its own angle, cuts clean and hard, no dissolves, a slight frame jitter on the jumps.\n\nAudio: wind, rapid footsteps, city ambience, low score underneath, an accent hit on each leap, the score bursting at 4s, closing the last 1s.\n\nNo text, subtitles, logos or watermarks of any kind, no animation or cartoon rendering, no overly-CG look, keep the live-action texture.\n```\n\n\n# Workflow  \n## Phase 1: Understand and Clarify Task, Requirements, Rules  \nAfter fully understanding the Prompting Guidance and prompt reference examples, restate the task, requirements, and rules. End with: \"\u2705 Task clarified, please input reference image, video mode (I2VA/FL2VA/L2VA), and any other supplementary information.\"\n\n## Phase 2: Visual Comparison and Smart Follow-up  \n1. **Scan for motion potential and stability risk**: Compare image facts, extract motion potential and stability risk areas.  \n2. **Professional Follow-Up Questions**: Ask 3\u20135 precise questions based on the text content (excluding total video duration, aspect ratio, number of shots, and video style).\n3. **Additional Information**: Prompt the user to enter the total video duration, aspect ratio, number of shots, and video style.\n4. **Mandatory Stop**: After generating the visual analysis report, in-depth confirmation questions, and requesting additional information, stop immediately and wait for the user\u2019s confirmation.\n\n```\n### Visual Analysis Report  \n- **Dynamic Potential Points**: ...  \n- **Stability Risk Areas**: ...  \n- **Audio Anchor Inference**: ...  \n- **Shot Movement Potential**: ...  \n\n### In-Depth Confirmation Questions  \n1\u20135. ...\n\n### Additional Information  \nTotal video duration:\nVideo aspect ratio:\nNumber of shots:\nVideo style:\n```\n\n## Phase 3 (Only Start After User Answers)  \nAfter receiving answers, execute the following steps:\n\n### Step 1: Fusion Correction and Storyboard Construction  \nBased on image facts and user answers, construct storyboard descriptions. Content specified by the user (regardless of whether it exceeds the image's visible scope or is unrelated to the scene) serves as the creative basis and is directly integrated into the storyboard without additional prohibition. Each shot description includes: style, composition, subject, action, camera motion (natural phrase), sound (dialogue, ambient sound). Different objects are described independently; attributes are not merged.\n\n### Step 2: Sound Design  \n**Based on image environment clues, reasonable inference, or user-specified sound content.** If the user specifies sound directly adopt it, and do not prohibit unrelated sounds specified by the user. Non-narrative music can be derived from the overall atmosphere but must not introduce sound elements completely unrelated to the scene and not specified by the user.\n\n### Step 3: Instruction Part Generation  \nGenerate the corresponding instruction part based on the video mode (I2VA/FL2VA/L2VA), including keyframe alignment information.\n\n### Step 4: Reverse Verification  \nCheck the prompt sentence by sentence to confirm that every dynamic description and sound detail has image basis, reasonable inference, or user specification, with no fabrication or unrelated fiction.\n\n## Final Output  \nOutput the English prompt and Chinese breakdown, plus a self-check list.\n\n# Output Format  \n\n## English Prompt  \n```\n\n```\n\n## Chinese Breakdown  \nBriefly explain the storyboard design, sound design, utilization of motion potential, and avoidance strategy for stability risks.\n\n## Self-Check List (Strictly Do Not Pass Just to Pass)\n\n- [ ] Does every multimodal description have a pixel counterpart, a reasonable motion potential inference, or user-specified content?  \n- [ ] Is motion potential fully exploited?  \n- [ ] Is the stability risk area resolved by storyboard or camera motion?  \n- [ ] Is camera motion expressed in natural English phrases?  \n- [ ] Is sound design based on image clues, reasonable inference, or user specification, without unrelated fiction?  \n- [ ] Are dialogue IDs stable and have sufficient identity clues on first appearance?  \n- [ ] Are storyboard timestamps strictly increasing and within the video duration?  \n- [ ] Does the instruction part format conform to the selected video mode requirements?"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [
+      231,
+      129,
+      0,
+      125,
+      0,
+      "NOISE"
+    ],
+    [
+      232,
+      126,
+      0,
+      125,
+      1,
+      "GUIDER"
+    ],
+    [
+      247,
+      125,
+      0,
+      122,
+      0,
+      "LATENT"
+    ],
+    [
+      248,
+      125,
+      0,
+      121,
+      0,
+      "LATENT"
+    ],
+    [
+      252,
+      135,
+      0,
+      125,
+      2,
+      "SAMPLER"
+    ],
+    [
+      256,
+      138,
+      0,
+      126,
+      0,
+      "MODEL"
+    ],
+    [
+      257,
+      138,
+      0,
+      124,
+      0,
+      "MODEL"
+    ],
+    [
+      258,
+      141,
+      0,
+      140,
+      0,
+      "IMAGE"
+    ],
+    [
+      259,
+      142,
+      1,
+      140,
+      1,
+      "AUDIO"
+    ],
+    [
+      260,
+      142,
+      2,
+      140,
+      2,
+      "FLOAT"
+    ],
+    [
+      261,
+      142,
+      0,
+      141,
+      0,
+      "IMAGE"
+    ],
+    [
+      262,
+      143,
+      0,
+      142,
+      0,
+      "VIDEO"
+    ],
+    [
+      263,
+      122,
+      0,
+      143,
+      0,
+      "IMAGE"
+    ],
+    [
+      264,
+      121,
+      0,
+      143,
+      1,
+      "AUDIO"
+    ],
+    [
+      265,
+      140,
+      0,
+      92,
+      0,
+      "VIDEO"
+    ],
+    [
+      308,
+      167,
+      0,
+      168,
+      0,
+      "MINIMAX_H3_BUNDLE"
+    ],
+    [
+      309,
+      168,
+      1,
+      169,
+      0,
+      "MINIMAX_H3_CONTEXT"
+    ],
+    [
+      311,
+      169,
+      0,
+      126,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      312,
+      169,
+      3,
+      121,
+      1,
+      "VAE"
+    ],
+    [
+      313,
+      169,
+      2,
+      122,
+      1,
+      "VAE"
+    ],
+    [
+      314,
+      169,
+      1,
+      125,
+      4,
+      "LATENT"
+    ],
+    [
+      315,
+      169,
+      4,
+      143,
+      2,
+      "FLOAT"
+    ],
+    [
+      316,
+      168,
+      0,
+      134,
+      0,
+      "MODEL"
+    ],
+    [
+      323,
+      134,
+      0,
+      138,
+      0,
+      "MODEL"
+    ],
+    [
+      324,
+      124,
+      0,
+      125,
+      3,
+      "SIGMAS"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 5,
+      "title": "\u52a0\u8f7d\u6a21\u578b",
+      "bounding": [
+        -2450,
+        4600,
+        519.0908203125,
+        250.90914916992188
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "\u751f\u6210\u8bbe\u7f6e",
+      "bounding": [
+        -1920,
+        4600,
+        1004.336121004698,
+        909.3467786252195
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "\u751f\u6210",
+      "bounding": [
+        -908.6690487426757,
+        4600.683006092834,
+        482.7585613770882,
+        533.2980976773661
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "\u4fdd\u5b58\u89c6\u9891",
+      "bounding": [
+        -416.00572284846845,
+        4604.643380759947,
+        1505.089852241696,
+        2108.3086811846433
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "\u52a0\u8f7d\u533a\u57df",
+      "bounding": [
+        -2444.262342212692,
+        4859.415647828195,
+        295.2000812377901,
+        1078.959476781657
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6209213230591553,
+      "offset": [
+        5769.613498857462,
+        -4207.30843629727
+      ]
+    },
+    "frontendVersion": "1.48.7",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
