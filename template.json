@@ -24,7 +24,10 @@
         "minimax_h3_audio_vae_fp32.safetensors",
         "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
         "H3_Motion_BoosterV2.safetensors",
-        "minimax_h3_fl2v_turbo_4step_v1.1_768p_comfyui_bf16.safetensors"
+        "minimax_h3_fl2v_turbo_4step_v1.1_768p_comfyui_bf16.safetensors",
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "minimax_h3_turbo_v4_step600_ema.safetensors"
       ]
     },
     "download_viggle_animate": {
@@ -76,6 +79,11 @@
           "fl2va": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
           "ref2va": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
           "text_encoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+        },
+        "h3default": {
+          "fl2va": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+          "ref2va": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+          "text_encoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
         }
       }
     }
@@ -99,7 +107,10 @@
       "https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git",
       "https://github.com/ltdrdata/ComfyUI-Impact-Pack.git",
       "https://github.com/yolain/ComfyUI-Easy-Use.git",
-      "https://github.com/LAOGOU-666/Comfyui-Memory_Cleanup.git"
+      "https://github.com/LAOGOU-666/Comfyui-Memory_Cleanup.git",
+      "https://github.com/nkxx188/ComfyUI-MiniMaxH3-Easy.git",
+      "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
+      "https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director.git"
     ]
   },
   "sage": true,
